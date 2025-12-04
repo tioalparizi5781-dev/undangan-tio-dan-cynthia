@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Tio & Funny</title>
+    
+    <style>
+        /* --- STYLE UMUM --- */
+        body {
+            font-family: 'Georgia', serif; 
+            background-color: #f7f3e8; 
+            color: #4b3832; 
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .undangan-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            min-height: 100vh;
+        }
+
+        /* --- STYLE COVER (Halaman Depan) --- */
+        #cover-page {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f0ebe3; 
+            z-index: 100; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: opacity 1.5s ease-in-out; 
+        }
+
+        #cover-page.hidden {
+            opacity: 0;
+            pointer-events: none; 
+        }
+        
+        .cover-text {
+            border: 3px solid #a38d74;
+            padding: 30px;
+        }
+
+        .cover-text h1 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .cover-text h2 {
+            font-family: 'Brush Script MT', cursive; 
+            font-size: 3em; 
+            color: #8c5a5a;
+            margin: 10px 0;
+        }
+
+        #open-button {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: #5c4033;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px #4b3832;
+            transition: all 0.2s;
+        }
+
+        #open-button:active {
+            box-shadow: 0 1px #4b3832;
+            transform: translateY(3px);
+        }
+
+        /* --- STYLE ISI UNDANGAN --- */
+        
+        h1 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.5em;
+            color: #8c5a5a; 
+            border-bottom: 2px solid #e0c9c9;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-family: 'Brush Script MT', cursive; 
+            font-size: 2.2em; 
+            color: #5c4033;
+            margin: 5px 0;
+        }
+
+        .mempelai {
+            margin: 20px 0;
+        }
+        
+        .mempelai p {
+            line-height: 0.5; 
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        .penghubung {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #8c5a5a;
+            margin: 20px 0;
+        }
+
+        .acara {
+            background-color: #e8dccb;
+            padding: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .acara h3 {
+            color: #5c4033;
+            margin-bottom: 10px;
+        }
+
+        .quote-romantis {
+            font-style: italic;
+            margin-bottom: 40px;
+            padding: 15px;
+            border-left: 5px solid #8c5a5a;
+            background-color: #f0ebe3;
+        }
+        .quote-romantis .sumber {
+            font-style: normal;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .peta-lokasi {
+            margin: 30px 0;
+        }
+        
+        /* Style untuk IFRAME agar responsif di ukuran kecil */
+        .peta-lokasi iframe {
+            width: 100%; 
+            max-width: 600px; /* Batasan maksimum */
+            height: 300px; /* Tinggi disesuaikan agar tidak terlalu besar */
+        }
+
+        .tombol-map {
+            display: inline-block;
+            background-color: #5c4033;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .tombol-map:hover {
+            background-color: #4b3832;
+        }
+
+        .doa-mempelai {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px dashed #a38d74;
+        }
+
+        .lagu-pilihan {
+            margin: 40px 0;
+        }
+        
+        #hitung-mundur {
+            font-size: 1.3em;
+            color: #8c5a5a;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+    </head>
+<body>
+    
+    <div id="cover-page">
+        <div class="cover-text">
+            <p style="margin-bottom: 10px;">The Wedding Of</p>
+            <h2>Tio & Funny</h2>
+            <hr style="width: 50%; border-color: #a38d74;">
+            <p style="margin-top: 20px;">Kepada Yth:</p>
+            <p style="font-size: 1.5em; font-weight: bold;">Bapak/Ibu/Saudara/i</p>
+        </div>
+        <button id="open-button">
+            <svg style="margin-right: 8px; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-open" viewBox="0 0 16 16">
+                <path d="M8.47 1.318A1 1 0 0 0 8 1v5.176l4.639-2.585L8.47 1.318ZM13.882 4.2L8 7.419 2.118 4.2A1 1 0 0 0 2 4v7.781l5.961 3.298a1 1 0 0 0 .078 0L14 11.781V4a1 1 0 0 0-.118-.2Z"/>
+            </svg>
+            Buka Undangan
+        </button>
+    </div>
+
+    <div class="undangan-container">
+        
+        <div class="quote-romantis">
+            <p>"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri..."</p>
+            <p class="sumber">(Q.S. Ar-Rum: 21)</p>
+        </div>
+        
+        <h1>Wedding Invitation</h1>
+
+        <p class="salam">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada acara pernikahan putra-putri kami:</p>
+
+        <div class="mempelai pria">
+            <h2>Tio Alfarizi</h2>
+            <p>Putra dari: **Bapak Pir Daus & Ibu Endang Jelita**</p>
+        </div>
+
+        <p class="penghubung">&</p>
+
+        <div class="mempelai wanita">
+            <h2>Funny Cynthia</h2>
+            <p>Putri dari: **Bapak Yusuf & Ibu Suryanti**</p>
+        </div>
+
+        <div class="acara">
+            <h3>Akad Nikah & Resepsi</h3>
+            <p class="tanggal">Kamis, 01 Januari 2026</p>
+            <p>Pukul: **09:00 WIB (Akad) & 11:00 - Selesai (Resepsi)**</p>
+            <p class="lokasi-nama">Amaris Hotel Citra Raya</p>
+            <p>Jl. Citra Raya Boulevard No.KM.08, Cikupa, Tangerang</p>
+        </div>
+        
+        <h3>Menuju Hari Bahagia:</h3>
+        <p id="hitung-mundur">Memuat hitungan...</p>
+
+        <div class="peta-lokasi">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15886.634732008323!2d106.5268164!3d-6.2446995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8d5a1b0213d%3A0x633519782531e2d8!2sAmaris%20Hotel%20Citra%20Raya%20Tangerang!5e0!3m2!1sid!2sid!4v1701760200000!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+            <a href="https://maps.app.goo.gl/cSpDLkARt3L6dy7b8?g_st=ipc" target="_blank" class="tombol-map">Buka di Google Maps</a>
+        </div>
+        
+        <div class="doa-mempelai">
+            <h3>Doa Terbaik Kami</h3>
+            <p>Ya Allah, satukanlah Tio Alfarizi dan Funny Cynthia dalam ikatan suci, berikanlah mereka keturunan yang shalih/shalihah, jadikanlah rumah tangga mereka penuh berkah, cinta, dan mawaddah warahmah hingga akhir hayat.</p>
+        </div>
+
+        <div class="lagu-pilihan">
+            <h3>beutifulliar in white</h3>
+            <audio id="background-music" loop>
+                <source src="Romantis.mp3.mp3" type="audio/mpeg">
+                Maaf, browser Anda tidak mendukung audio.
+            </audio>
+        </div>
+
+        <p class="penutup">Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu. Atas kehadiran dan doa restunya, kami ucapkan terima kasih.</p>
+
+        <p class="hormati">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+
+        <p class="nama-ortu">Kami yang berbahagia,</p>
+        <p class="nama-keluarga">Keluarga Bapak Pir Daus & Keluarga Bapak Yusuf</p>
+    </div>
+
+    <script>
+        // --- 1. Fungsi Animasi Buka dan Play Musik ---
+        const cover = document.getElementById('cover-page');
+        const openButton = document.getElementById('open-button');
+        const music = document.getElementById('background-music');
+
+        openButton.addEventListener('click', function() {
+            cover.classList.add('hidden');
+            
+            // Play Musik
+            music.play().catch(error => {
+                console.log("Musik gagal diputar, pastikan URL audio valid.");
+            });
+
+            // Hapus cover setelah animasi selesai
+            setTimeout(() => {
+                cover.style.display = 'none';
+            }, 1500); 
+        });
+
+
+        // --- 2. FUNGSI HITUNG MUNDUR ---
+        function hitungMundur() {
+            // TANGGAL HITUNG MUNDUR: 1 Januari 2026, jam 09:00 WIB
+            const tanggalPernikahan = new Date("Jan 01, 2026 09:00:00").getTime(); 
+
+            const x = setInterval(function() {
+                const sekarang = new Date().getTime();
+                const jarak = tanggalPernikahan - sekarang;
+
+                const hari = Math.floor(jarak / (1000 * 60 * 60 * 24));
+                const jam = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const menit = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
+                const detik = Math.floor((jarak % (1000 * 60)) / 1000);
+
+                const elementHitungMundur = document.getElementById("hitung-mundur");
+                
+                if (jarak > 0) {
+                    elementHitungMundur.innerHTML = 
+                        hari + " Hari, " + jam + " Jam, " + menit + " Menit, " + detik + "Detik";
+                } else {
+                    clearInterval(x);
+                    elementHitungMundur.innerHTML = "ACARA SEDANG BERLANGSUNG! Selamat Menikah.";
+                }
+            }, 1000);
+        }
+
+        hitungMundur();
+    </script>
+    </body>
+</html>
